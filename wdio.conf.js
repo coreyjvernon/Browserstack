@@ -166,7 +166,15 @@ exports.config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter
-    reporters: ['spec','json'],
+    reporters: [
+        'spec',
+        ['junit', {
+            outputDir: './test-results/',
+            outputFileFormat: function(options) {
+                return `wdio-${options.cid}-reporter.log`;
+            }
+        }]
+    ],
 
     // Options to be passed to Mocha.
     // See the full list at http://mochajs.org/
