@@ -168,12 +168,13 @@ exports.config = {
     // see also: https://webdriver.io/docs/dot-reporter
     reporters: [
         'spec',
-        ['junit', {
-            outputDir: './test-results/',
-            outputFileFormat: function(options) {
-                return `wdio-${options.cid}-reporter.log`;
-            }
-        }]
+        'json',
+    //    ['junit', {
+    //        outputDir: './test-results/',
+    //        outputFileFormat: function(options) {
+    //            return `wdio-${options.cid}-reporter.log`;
+    //        }
+    //    }]
     ],
 
     // Options to be passed to Mocha.
