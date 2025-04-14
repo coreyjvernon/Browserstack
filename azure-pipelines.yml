@@ -1,0 +1,28 @@
+# azure-pipelines.yml
+trigger:
+  - main  # or your main branch name
+
+pool:
+  vmImage: 'ubuntu-latest'  # Use a Linux build agent
+
+steps:
+- task: NodeTool@0
+  inputs:
+    versionSpec: '18.x'
+  displayName: 'Install Node.js'
+
+- script: |
+    npm install
+  displayName: 'Install dependencies'
+
+- task: Bash@3
+  displayName: 'Run BrowserStack tests'
+  inputs:
+    targetType: 'inline'
+    script: |
+      npm run wdio
+  env:
+    BROWSERSTACK_USERNAME: $(BROWSERSTACK_USERNAME)
+    BROWSERSTACK_ACCESS_KEY: $(BROWSERSTACK_ACCESS_KEY)
+    BSTACK_USER: $(BSTACK_USER)
+    BSTACK_PASS: $(BSTACK_PASS)
