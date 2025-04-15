@@ -33,7 +33,8 @@ Tests run in parallel across three browser configurations:
 4. Run `npm run wdio` to execute tests
 
 ### CI/CD Pipeline
-Tests automatically run on Azure DevOps when code is pushed to the main branch.
+- Tests automatically run on Azure DevOps when code is pushed to the main branch.
+- Jenkins pipeline setup to be executed on chosen triggers.
 
 ## Environment Variables
 
